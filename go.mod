@@ -9,4 +9,4 @@ replace (
 	k8s.io/klog => github.com/mikkeloscar/knolog v0.0.0-20190326191552-80742771eb6b
 )
 
-require sigs.k8s.io/external-dns v0.7.6
+require sigs.k8s.io/external-dns v0.8.0
