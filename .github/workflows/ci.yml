@@ -35,7 +35,7 @@ jobs:
           repository: kubernetes-sigs/external-dns
           ref: ${{ needs.external-dns_version.outputs.gh_tag }}
       - name: disable test
-        run: sed -i -E 's/^\s*RUN\s+make\s+test\s+(build.+)$/\1' Dockerfile.mini
+        run: sed -i -E 's/^\s*RUN\s+make\s+test\s+(build.*)$/RUN make \1/' Dockerfile.mini
       - name: Docker meta
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v3.4.1
