@@ -1,3 +1,0 @@
-[submodule "external-dns"]
-	path = external-dns
-	url = https://github.com/kubernetes-sigs/external-dns.git
