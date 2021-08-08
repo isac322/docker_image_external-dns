@@ -36,7 +36,6 @@ jobs:
           ref: ${{ needs.external-dns_version.outputs.gh_tag }}
       - name: disable test
         run: sed -i -E 's/^\s*RUN\s+make\s+test\s+(build.*)$/RUN make \1/' Dockerfile.mini
-      - run: ls -ahl .
       - name: Docker meta
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v3.4.1
@@ -48,16 +47,13 @@ jobs:
           labels: |
             maintainer=${{ env.DOCKERHUB_USERNAME }}
             org.opencontainers.image.title=external-dns
-      - run: ls -ahl .
       - name: Set up QEMU
         id: qemu
         uses: docker/setup-qemu-action@v1
         with:
           platforms: ${{ env.PLATFORMS }}
-      - run: ls -ahl .
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - run: ls -ahl .
       - name: Login to DockerHub
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v1
