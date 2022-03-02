@@ -13,7 +13,7 @@ jobs:
       version: ${{ steps.external-dns_version.outputs.version }}
       gh_tag: ${{ steps.external-dns_version.outputs.gh_tag }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-go@v2
       - name: Get external-dns version
         id: external-dns_version
@@ -30,7 +30,7 @@ jobs:
       PLATFORMS: linux/amd64,linux/arm64/v8,linux/arm/v7
       DOCKERHUB_USERNAME: isac322
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: kubernetes-sigs/external-dns
           ref: ${{ needs.external-dns_version.outputs.gh_tag }}
