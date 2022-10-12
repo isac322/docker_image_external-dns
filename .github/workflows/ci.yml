@@ -38,7 +38,7 @@ jobs:
         run: sed -i -E 's/^\s*RUN\s+make\s+test\s+(build.*)$/RUN make \1/' Dockerfile.mini
       - name: Docker meta
         id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v4.0.1
+        uses: crazy-max/ghaction-docker-meta@v4.1.0
         with:
           flavor: latest=true
           images: ${{ env.DOCKERHUB_USERNAME }}/external-dns
